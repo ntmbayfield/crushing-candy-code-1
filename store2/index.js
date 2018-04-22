@@ -8,7 +8,6 @@ function accessesingData1() {
   for (var i = 0; i < store2['sale dates']['Banana Bunches'].length; i++) {
     bananaSaleDates.push(store2['sale dates']['Banana Bunches'][i]);
   } return bananaSaleDates;
-  }
 }
 
 // Using a built-in array property return the total sale dates there are for store2's 'Banana Bunches'

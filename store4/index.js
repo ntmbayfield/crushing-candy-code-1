@@ -46,41 +46,52 @@ function loopingData2() {
 // ^^^^^^^^^^^^ CHALLENGE ^^^^^^^^^^^^
 // Calculate how much money store4 made selling Peppermint Poppers. What about Caramel Twists? Each date represents 1 item sold. Round revenue to two decimal points. Return your answer as an array: `[total1, total2]`
 function challenge1() {
-  //create an empty object to populate as we iterate over store4
-  let candyCosts = {};
+  let ppAndCTRevenue = [];
 
-  //use for in loop to iterate over object keys which are the names of the candies and assign them as keys in the return Object
-  //and assign the value stored in ['cost'] key as the value in the return Object
-  for (let key in store4) {
-    candyCosts[key] = store4[key]['cost'];
+  //rounding function
+  function roundTo2Places(amount) {
+    return Math.round(100 * amount)/100;
   }
-  return candyCosts;
+
+  //calculate revenue made from Peppermint Poppers and round to 2 decimal points
+  let revenueFromPP = store4['Peppermint Poppers']['cost'] * store4['Peppermint Poppers']['sold on'].length;
+  revenueFromPP = roundTo2Places(revenueFromPP);
+
+  //calculate revenue made from Caramel Twists and round to 2 decimal points
+  let revenueFromCT = store4['Caramel Twists']['cost'] * store4['Caramel Twists']['sold on'].length;
+  revenueFromCT = roundTo2Places(revenueFromCT);
+
+  //push value of revenue made from each candy to new array;
+  ppAndCTRevenue.push(revenueFromPP);
+  ppAndCTRevenue.push(revenueFromCT);
+
+  return ppAndCTRevenue;
 }
 
 // Calculate and return how much money store4 made on January 9th. Round to two decimal points.
 function challenge2() {
 
-  function roundTo2Places(number) {
-    return Math.round(100 *number)/100;
-  }
-
-  let totalRevenueResult = 0;
-
-  //use a for in loop to iterate through the keys in store4(which are the candy names)
-  for (let key in store4) {
-    let counter = 0;
-
-    for (let i = 0; i < store4[key]['sold on'].length; i++) {
-        if (store4[key]['sold on'][i] === '2015-01-09') {
-          counter = counter + 1;
-        }
-      let individualCandyRevenue = counter *  store4[key]['cost'];
-      totalRevenueResult = totalRevenueResult + individualCandyRevenue;
-      console.log("Total Revenue Result: " + tvcxzotalRevenueResult);
+    function roundTo2Places(number) {
+      return Math.round(100 *number)/100;
     }
-    totalRevenueResult = roundTo2Places(totalRevenueResult);
 
-  return totalRevenueResult;
+    let totalRevenueResult = 0;
+
+    //use a for in loop to iterate through the keys in store4(which are the candy names)
+    for (let key in store4) {
+      let counter = 0;
+
+      for (let i = 0; i < store4[key]['sold on'].length; i++) {
+          if (store4[key]['sold on'][i] === '2015-01-09') {
+            counter = counter + 1;
+          }
+        let individualCandyRevenue = counter *  store4[key]['cost'];
+        totalRevenueResult = totalRevenueResult + individualCandyRevenue;
+        console.log("Total Revenue Result: " + totalRevenueResult);
+      }
+      totalRevenueResult = roundTo2Places(totalRevenueResult);
+
+    return totalRevenueResult;
   }
 
 
