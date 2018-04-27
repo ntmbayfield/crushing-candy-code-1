@@ -19,46 +19,46 @@ function accessesingData2() {
 // Create a loop to read which candies were sold by store1 on Jan 8. After simply outputting the data, try creating an array that contains the candy names.
 function loopingData1() {
   let namesOfCandiesSold = [];
- for (var i = 0; i < store1['2015-01-08'].length; i++) {
+
+  for (let i = 0; i < store1['2015-01-08'].length; i++) {
    namesOfCandiesSold.push(store1['2015-01-08'][i][0]);
- }
- return namesOfCandiesSold;
+  }
+  return namesOfCandiesSold;
 }
 
 // Create a loop to count the total number of candies sold on Jan 10 at store1. Where do you have to initialize the counter variable? Why?
 function loopingData2() {
-  function getSum(total, num) {
-    return total + num;
-  }
 
   let jan10CandiesSold = [];
-  let totalCandiesSold;
-  for (var i = 0; i < store1['2015-01-10'].length; i++) {
+
+  for (let i = 0; i < store1['2015-01-10'].length; i++) {
     jan10CandiesSold.push(store1['2015-01-10'][i][2]);
   }
-  totalCandiesSold = jan10CandiesSold.reduce(getSum);{
+
+  let count=0;
+  for (let i=0; i<jan10CandiesSold.length; i++) {
+    count = count + jan10CandiesSold[i];
   }
-  return totalCandiesSold;
+  return count;
 }
 
 // Use `Object.keys()` to get an array of the dates that candies were sold at store1.
 function loopingData3() {
   let saleDates = Object.keys(store1);
-
   return saleDates;
-
 }
 
 // Use a loop to calculate the total number of candies sold at store1.
 function loopingData4() {
-  // declare and initialize variable to he be returned that will be the result of adding together all of the index[2]'s
+
+// declare and initialize variable to he be returned that will be the result of adding together all of the index[2]'s
 //  within the object'
 //  use for..in loop to iterate through the keys in store1 object
 //  return result;
 let result = 0;
 
   for (let key in store1) {
-    for (var i = 0; i < store1[key].length; i++) {
+    for (let i = 0; i < store1[key].length; i++) {
       result = result + store1[key][i][2];
     }
   }
