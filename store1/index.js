@@ -28,16 +28,15 @@ function loopingData1() {
 
 // Create a loop to count the total number of candies sold on Jan 10 at store1. Where do you have to initialize the counter variable? Why?
 function loopingData2() {
-
+  
   let jan10CandiesSold = [];
-
   for (let i = 0; i < store1['2015-01-10'].length; i++) {
     jan10CandiesSold.push(store1['2015-01-10'][i][2]);
   }
 
   let count=0;
   for (let i=0; i<jan10CandiesSold.length; i++) {
-    count = count + jan10CandiesSold[i];
+    let count = count + jan10CandiesSold[i];
   }
   return count;
 }
@@ -68,8 +67,8 @@ let result = 0;
 // In the previous exercise, where did you have to initialize the counter variable? Why?
 
 function loopingData5() {
-  //PSEUDOCODE
-//inside of the for in loop  used in the previous step, use a for loop to iterate over the arrays that are the value for that keys
+//PSEUDOCODE
+//inside of the for in loop used in the previous step, use a for loop to iterate over the arrays that are the value for that key
 //use accumulate pattern on index[2] for each item looped in previous step
 
 //return the total number of candies sold which should be stored in our accumulator variable
